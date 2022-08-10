@@ -8,7 +8,10 @@ const Engineer = require('./lib/Engineer');
 const employees = [];
 
 function init() {
-    // Beginning prompt asking user what they would like to do
+teamPrompt();
+// Beginning prompt asking user what they would like to do
+function teamPrompt() {
+
     inquirer.prompt([
         {
             type: 'list',
@@ -33,7 +36,9 @@ function init() {
         }
     })
 
-// Gather manager data via inquirer
+}
+
+// Gather manager data
 function newManager() {
     inquirer.prompt([
         {
@@ -62,7 +67,10 @@ function newManager() {
         const manager = new Manager(response.managerName, response.managerId, response.managerEmail, response.managerOffice) 
 
         employees.push(manager)
+        // Call the teamPrompt() function to return the user to the first screen
+        teamPrompt()
         })  
+
     }
 
 // gather engineer data
@@ -94,6 +102,8 @@ function newEngineer() {
         const engineer = new Engineer(response.engineerName, response.engineerId, response.engineerEmail, response.github) 
     
         employees.push(engineer)
+        // Call the teamPrompt() function to return the user to the first screen
+        teamPrompt()
     })
 }
 // gather intern data
@@ -125,6 +135,8 @@ function newIntern() {
         const intern = new Intern(response.internName, response.internId, response.internEmail, response.school) 
     
         employees.push(intern)
+        // Call the teamPrompt() function to return the user to the first screen
+        teamPrompt()
     })
 }
 
