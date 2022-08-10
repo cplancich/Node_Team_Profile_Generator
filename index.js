@@ -70,34 +70,63 @@ function newEngineer() {
     inquirer.prompt([
         {
             type: 'input',
-            message: "What is your Manager's name?",
-            name: "managerName",
+            message: "What is your Engineer's name?",
+            name: "engineerName",
         },
         {
             type: 'input',
-            message: "What is your Manager's employee ID?",
-            name: "managerId",
+            message: "What is your Engineer's employee ID?",
+            name: "engineerId",
         },
         {
             type: 'input',
-            message: "What is your Manager's email address?",
-            name: "managerEmail",
+            message: "What is your Engineer's email address?",
+            name: "engineerEmail",
         },
         {
             type: 'input',
-            message: "What is your Manager's office number?",
-            name: "managerOffice",
+            message: "What is your Engineer's Github username?",
+            name: "github",
         },
     ])
     // THEN build an engineer object
     .then((response) => {
-        const manager = new Manager(response.managerName, response.managerId, response.managerEmail, response.managerOffice) 
+        const engineer = new Engineer(response.engineerName, response.engineerId, response.engineerEmail, response.github) 
     
-        employees.push(manager)
+        employees.push(engineer)
     })
 }
 // gather intern data
-
+function newIntern() {
+    inquirer.prompt([
+        {
+            type: 'input',
+            message: "What is your Intern's name?",
+            name: "internName",
+        },
+        {
+            type: 'input',
+            message: "What is your Intern's employee ID?",
+            name: "internId",
+        },
+        {
+            type: 'input',
+            message: "What is your Intern's email address?",
+            name: "internEmail",
+        },
+        {
+            type: 'input',
+            message: "What school does your Intern attend?",
+            name: "school",
+        },
+    ])
+    // THEN build an intern object
+    .then((response) => {
+        const intern = new Intern(response.internName, response.internId, response.internEmail, response.school) 
+    
+        employees.push(intern)
+    })
+}
     // inquierer.prompt()
 
     // THEN build an intern object
