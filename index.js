@@ -140,12 +140,6 @@ function newIntern() {
     })
 }
 
-// Ask user for which team member they want to add / if are they finished adding members
-
-    // inquirer.prompt
-
-    // THEN decide which function to call
-
 // Generate html & write file
     // Import Employee array to generate HTML
 
