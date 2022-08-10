@@ -8,8 +8,9 @@ const Engineer = require('./lib/Engineer');
 const employees = [];
 
 function init() {
-teamPrompt();
 // Beginning prompt asking user what they would like to do
+teamPrompt();
+
 function teamPrompt() {
 
     inquirer.prompt([
@@ -34,9 +35,9 @@ function teamPrompt() {
         } else {
             generateHTML();
         }
-    })
+        })
 
-}
+    }
 
 // Gather manager data
 function newManager() {
@@ -104,8 +105,8 @@ function newEngineer() {
         employees.push(engineer)
         // Call the teamPrompt() function to return the user to the first screen
         teamPrompt()
-    })
-}
+        })
+    }
 // gather intern data
 function newIntern() {
     inquirer.prompt([
@@ -137,15 +138,16 @@ function newIntern() {
         employees.push(intern)
         // Call the teamPrompt() function to return the user to the first screen
         teamPrompt()
-    })
-}
+        })
+    }
 
-// Generate html & write file
-    // Import Employee array to generate HTML
+// TODO: Generate html & write file
 
-    // generateHTML()
+    // TODO: Import Employee array to generate HTML
 
-    // generateFile()
+    // TODO: generateHTML()
+
+    // TODO: generateFile()
 
 }
 
