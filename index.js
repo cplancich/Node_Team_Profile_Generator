@@ -8,6 +8,7 @@ const Engineer = require('./lib/Engineer');
 const employees = [];
 
 function init() {
+    // Beginning prompt asking user what they would like to do
     inquirer.prompt([
         {
             type: 'list',
@@ -23,16 +24,16 @@ function init() {
     ]).then((response) => {
         if(response.firstPrompt==="Add Manager") {
             newManager();
-        } else if(response.firstPrompt==="Add Intern") {
-            newIntern();
         } else if (response.firstPrompt==="Add Engineer") {
             newEngineer();
+        } else if(response.firstPrompt==="Add Intern") {
+            newIntern();
         } else {
             generateHTML();
         }
     })
 
-    // gather manager data
+// Gather manager data via inquirer
 function newManager() {
 inquirer.prompt([
     {
@@ -55,19 +56,46 @@ inquirer.prompt([
         message: "What is your Manager's office number?",
         name: "managerOffice",
     },
-]).then((response) => {
+])
+// Push user input into const employees array
+.then((response) => {
     const manager = new Manager(response.managerName, response.managerId, response.managerEmail, response.managerOffice) 
 
     employees.push(manager)
-})  
+    })  
 }
 
 // gather engineer data
-
-    // inquirer.prompt()
-
+function newEngineer() {
+    inquirer.prompt([
+        {
+            type: 'input',
+            message: "What is your Manager's name?",
+            name: "managerName",
+        },
+        {
+            type: 'input',
+            message: "What is your Manager's employee ID?",
+            name: "managerId",
+        },
+        {
+            type: 'input',
+            message: "What is your Manager's email address?",
+            name: "managerEmail",
+        },
+        {
+            type: 'input',
+            message: "What is your Manager's office number?",
+            name: "managerOffice",
+        },
+    ])
     // THEN build an engineer object
-
+    .then((response) => {
+        const manager = new Manager(response.managerName, response.managerId, response.managerEmail, response.managerOffice) 
+    
+        employees.push(manager)
+    })
+}
 // gather intern data
 
     // inquierer.prompt()
