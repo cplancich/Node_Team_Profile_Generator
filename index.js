@@ -35,35 +35,35 @@ function init() {
 
 // Gather manager data via inquirer
 function newManager() {
-inquirer.prompt([
-    {
-        type: 'input',
-        message: "What is your Manager's name?",
-        name: "managerName",
-    },
-    {
-        type: 'input',
-        message: "What is your Manager's employee ID?",
-        name: "managerId",
-    },
-    {
-        type: 'input',
-        message: "What is your Manager's email address?",
-        name: "managerEmail",
-    },
-    {
-        type: 'input',
-        message: "What is your Manager's office number?",
-        name: "managerOffice",
-    },
-])
-// Push user input into const employees array
-.then((response) => {
-    const manager = new Manager(response.managerName, response.managerId, response.managerEmail, response.managerOffice) 
+    inquirer.prompt([
+        {
+            type: 'input',
+            message: "What is your Manager's name?",
+            name: "managerName",
+        },
+        {
+            type: 'input',
+            message: "What is your Manager's employee ID?",
+            name: "managerId",
+        },
+        {
+            type: 'input',
+            message: "What is your Manager's email address?",
+            name: "managerEmail",
+        },
+        {
+            type: 'input',
+            message: "What is your Manager's office number?",
+            name: "managerOffice",
+        },
+    ])
+    // Push user input data as an object into employees array
+    .then((response) => {
+        const manager = new Manager(response.managerName, response.managerId, response.managerEmail, response.managerOffice) 
 
-    employees.push(manager)
-    })  
-}
+        employees.push(manager)
+        })  
+    }
 
 // gather engineer data
 function newEngineer() {
@@ -89,7 +89,7 @@ function newEngineer() {
             name: "github",
         },
     ])
-    // THEN build an engineer object
+    // Push user input data as an object into employees array
     .then((response) => {
         const engineer = new Engineer(response.engineerName, response.engineerId, response.engineerEmail, response.github) 
     
@@ -120,16 +120,13 @@ function newIntern() {
             name: "school",
         },
     ])
-    // THEN build an intern object
+    // Push user input data as an object into employees array
     .then((response) => {
         const intern = new Intern(response.internName, response.internId, response.internEmail, response.school) 
     
         employees.push(intern)
     })
 }
-    // inquierer.prompt()
-
-    // THEN build an intern object
 
 // Ask user for which team member they want to add / if are they finished adding members
 
@@ -144,7 +141,6 @@ function newIntern() {
 
     // generateFile()
 
-  
 }
 
 init();
