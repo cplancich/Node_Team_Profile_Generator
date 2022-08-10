@@ -2,12 +2,28 @@ const inquirer = require('inquierer');
 const fs = require('fs');
 
 // create an empty array list to store employee objects
+const employess = [
+    {
+        name: "",
+        employeeID: "",
+        emailAddress: "",
+        githubUsername: "",
+    },
+]
 
 // gather manager data
 
-    // inquirer.prompt()
+// inquirer.prompt()
 
-    // THEN build a manager object
+// THEN build a manager object
+const manager = [
+    {
+        name: "",
+        employeeID: "",
+        emailAddress: "",
+        officeNumber: "", 
+    }
+]
 
 // gather engineer data
 
