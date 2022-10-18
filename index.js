@@ -141,13 +141,11 @@ function newIntern() {
         })
     }
 
-// TODO: Generate html & write file
-
-    // TODO: Import Employee array to generate HTML
-
-    // TODO: generateHTML()
-
-    // TODO: generateFile()
+// TODO: Function to write HTML file
+function generateHTML(fileName, data) {
+    fs.writeFile(fileName, data, (err) =>
+    err ? console.error(err) : console.log('Team page generated in "dist" folder'))
+}
 
 }
 
