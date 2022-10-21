@@ -1,4 +1,22 @@
+const Manager = require('../lib/Manager');
+const Intern = require('../lib/Intern');
+const Engineer = require('../lib/Engineer');
+
 const generateHTML = (data) => {
+    const htmlHeader =
+    `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employees</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+    `
+
     const generateManager = (manager) => {
         // return HTML template for manager card
         return `\n <div class="card text-white mb-3 mx-5" style="width: 15rem; background-color: #5FBFF9;">
@@ -24,9 +42,8 @@ const generateHTML = (data) => {
                             <li class="list-group-item"> Email: <a href="mailto:${engineer.email}">${engineer.email}</a></li>
                             <li class="list-group-item">GitHub: <span>${engineer.gitHub}</span></li>
                         </ul>
-                    </div>
+                    </div>w
                 </div>\n`
-                
     }
     const generateIntern = (intern) => {
         // return HTML template for intern card
@@ -41,8 +58,14 @@ const generateHTML = (data) => {
                     </ul>
                 </div>
             </div>\n`
-
     }
-    // Final HTML element that collects user data and renders data to page
+    const htmlFooter = 
+    `
+</body>
+</html>
+    `
+    // TODO: Final HTML element that collects user data and renders data to page
 
 }
+
+module.exports = generateHTML;
