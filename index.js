@@ -3,6 +3,7 @@ const fs = require('fs');
 const Manager = require('./lib/Manager');
 const Intern = require('./lib/Intern');
 const Engineer = require('./lib/Engineer');
+const generateHTML = require('./src/template')
 
 // create an empty array list to store employee objects
 const employees = [];
@@ -33,7 +34,7 @@ function teamPrompt() {
         } else if(response.firstPrompt==="Add Intern") {
             newIntern();
         } else {
-            generateHTML();
+            renderHTML('./dist/index.html', generateHTML(employees));
         }
         })
 
@@ -141,8 +142,8 @@ function newIntern() {
         })
     }
 
-// TODO: Function to write HTML file
-function generateHTML(fileName, data) {
+// : Function to write HTML file
+function renderHTML(fileName, data) {
     fs.writeFile(fileName, data, (err) =>
     err ? console.error(err) : console.log('Team page generated in "dist" folder'))
 }

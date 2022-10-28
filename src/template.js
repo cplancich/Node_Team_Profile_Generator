@@ -1,6 +1,4 @@
-
-const generateHTML = (data) => {
-    const htmlHeader =
+const htmlHeader =
     `
 <!DOCTYPE html>
 <html lang="en">
@@ -13,8 +11,7 @@ const generateHTML = (data) => {
 </head>
 <body>
     `
-
-    const generateManager = (manager) => {
+const generateManager = (manager) => {
         // return HTML template for manager card
         return `\n <div class="card text-white mb-3 mx-5" style="width: 15rem; background-color: #5FBFF9;">
             <h4 class="card-header" style="border-bottom: none;">${manager.name}</h4>
@@ -28,7 +25,7 @@ const generateHTML = (data) => {
                 </div>
             </div>\n`
         }
-        const generateEngineer = (engineer) => {
+const generateEngineer = (engineer) => {
             // return HTML template for engineer card
             return `\n <div class="card text-white mb-3 mx-5" style="width: 15rem; background-color: #5FBFF9;">
                 <h4 class="card-header" style="border-bottom: none;">${engineer.name}</h4>
@@ -39,32 +36,42 @@ const generateHTML = (data) => {
                             <li class="list-group-item"> Email: <a href="mailto:${engineer.email}">${engineer.email}</a></li>
                             <li class="list-group-item">GitHub: <span>${engineer.gitHub}</span></li>
                         </ul>
-                    </div>w
+                    </div>
                 </div>\n`
     }
-    const generateIntern = (intern) => {
-        // return HTML template for intern card
-        return `\n <div class="card text-white mb-3 mx-5" style="width: 15rem; background-color: #5FBFF9;">
-            <h4 class="card-header" style="border-bottom: none;">${intern.name}</h4>
-            <h5 class="card-header"><i class="fas fa-glasses"></i>${intern.getRole()}<h5>
-                <div class="card">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">ID: <span>${intern.id}</span></li>
-                        <li class="list-group-item"> Email: <a href="mailto:${intern.email}">${intern.email}</a></li>
-                        <li class="list-group-item">School: <span>${intern.school}</span></li>
-                    </ul>
-                </div>
-            </div>\n`
+const generateIntern = (intern) => {
+ // return HTML template for intern card
+return `\n <div class="card text-white mb-3 mx-5" style="width: 15rem; background-color: #5FBFF9;">
+    <h4 class="card-header" style="border-bottom: none;">${intern.name}</h4>
+    <h5 class="card-header"><i class="fas fa-glasses"></i>${intern.getRole()}<h5>
+        <div class="card">
+            <ul class="list-group list-group-flush">
+                        <lclass="list-group-item">ID: <span>${intern.id}</span></lclass=>
+                 <li class="list-group-item"> Email: <a href="mailto:${intern.email}">${intern.email}</a></li>
+                <li class="list-group-item">School: <span>${intern.school}span></li>
+             </ul>
+        </div>
+     </div>\n`
     }
 
-    const htmlFooter = 
+const htmlFooter = 
     `
 </body>
 </html>
     `
     
-    // TODO: Final HTML element that collects user data and renders data to page
-
+function generateHTML(data) {
+    const managerArray = data.filter(employee => employee.getRole() == "Manager");
+    const engineerArray = data.filter(employee => employee.getRole() == "Engineer");
+    const internArray = data.filter(employee => employee.getRole() == "Intern");
+    const managerCards = managerArray.map(manager => generateManager(manager));
+    const engineerCards = engineerArray.map(engineer => generateEngineer(engineer));
+    const internCards = internArray.map(intern => generateIntern(intern));
+    const managerString = managerCards.join(' ');
+    const engineerString = engineerCards.join(' ');
+    const internString = internCards.join(' ');
+    const outputHTML = htmlHeader.concat(managerString, engineerString, internString, htmlFooter);
+    return outputHTML;
 }
 
 module.exports = generateHTML;
