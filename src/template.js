@@ -1,6 +1,3 @@
-const Manager = require('../lib/Manager');
-const Intern = require('../lib/Intern');
-const Engineer = require('../lib/Engineer');
 
 const generateHTML = (data) => {
     const htmlHeader =
@@ -59,11 +56,13 @@ const generateHTML = (data) => {
                 </div>
             </div>\n`
     }
+
     const htmlFooter = 
     `
 </body>
 </html>
     `
+    
     // TODO: Final HTML element that collects user data and renders data to page
 
 }
