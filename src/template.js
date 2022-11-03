@@ -48,7 +48,7 @@ return `\n <div class="card text-white mb-3 mx-5" style="width: 15rem; backgroun
             <ul class="list-group list-group-flush">
                         <lclass="list-group-item">ID: <span>${intern.id}</span></lclass=>
                  <li class="list-group-item"> Email: <a href="mailto:${intern.email}">${intern.email}</a></li>
-                <li class="list-group-item">School: <span>${intern.school}span></li>
+                <li class="list-group-item">School: <span>${intern.school}<span></li>
              </ul>
         </div>
      </div>\n`
